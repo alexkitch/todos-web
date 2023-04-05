@@ -7,7 +7,7 @@ export const useGetTodos = () => {
     const { data: todos = [], isFetching } = useQuery<Todo[]>(
         'todos',
         async () => {
-            await new Promise((resolve) => setTimeout(resolve, 200))
+            await new Promise((resolve) => setTimeout(resolve, 1000))
             return await axios.get(ENVIRONMENT.API_URL).then((res) => res.data)
         },
         {

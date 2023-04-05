@@ -1,0 +1,31 @@
+.primary {
+    @apply bg-purple-500 hover:bg-purple-700;
+}
+
+.secondary {
+    @apply bg-yellow-500 hover:bg-yellow-700;
+}
+
+.danger {
+    @apply bg-red-500 hover:bg-red-700;
+}
+
+.neutral {
+    @apply bg-neutral-500 hover:bg-neutral-700;
+}
+
+.success {
+    @apply bg-green-600 hover:bg-green-800;
+}
+
+.button-small {
+    @apply w-6 h-6 p-1;
+}
+
+.button-medium {
+    @apply w-12 h-12 p-3;
+}
+
+.button-large {
+    @apply w-24 h-24 p-4;
+}

@@ -3,7 +3,7 @@ import { Todo } from '@api/Todo'
 import { useGetTodos } from '@hooks/useGetTodos'
 import { TodoList } from '@components/TodoList'
 import { TodoItem } from '@components/TodoItem/TodoItem'
-import { Button } from '@components/Button'
+import { Button } from '@components/Button/Button'
 import { PlusIcon } from '@components/icons/PlusIcon'
 import { useCreateTodo } from '@hooks/useCreateTodo'
 import { useDeleteTodo } from '@hooks/useDeleteTodo'
@@ -29,18 +29,6 @@ export const Home = () => {
         [todos]
     )
 
-    const handleDeleteTodo = (todo: Todo) => {
-        deleteTodo(todo.id)
-    }
-
-    const handleCreateTodo = () => {
-        createTodo('New todo')
-    }
-
-    const handleBeginEditTodo = (todo: Todo) => {
-        setEditingTodo(todo)
-    }
-
     const handleEndEditTodo = (todo: Todo, description: string) => {
         setEditingTodo(null)
         editTodo({
@@ -57,13 +45,17 @@ export const Home = () => {
         })
     }
 
-    const renderTodoList = (todos: Todo[], canAddTodos: boolean) => {
+    const renderTodoList = (todos: Todo[], pending: boolean) => {
         return (
             <TodoList
                 suspense={isFetchingTodos}
                 addButton={
-                    canAddTodos && (
-                        <Button onClick={handleCreateTodo}>
+                    pending && (
+                        <Button
+                            onClick={() => createTodo('')}
+                            colour="success"
+                            size="large"
+                        >
                             <PlusIcon />
                         </Button>
                     )
@@ -74,22 +66,30 @@ export const Home = () => {
                         key={todo.id}
                         description={todo.description}
                         isEditing={editingTodo === todo}
+                        isComplete={!pending}
                         onChange={(description: string) =>
                             handleEndEditTodo(todo, description)
                         }
-                        editButton={
-                            <Button onClick={() => handleBeginEditTodo(todo)}>
-                                <EditIcon />
+                        deleteButton={
+                            <Button
+                                onClick={() => deleteTodo(todo.id)}
+                                colour="danger"
+                            >
+                                <DeleteIcon />
                             </Button>
                         }
-                        deleteButton={
-                            <Button onClick={() => handleDeleteTodo(todo)}>
-                                <DeleteIcon />
+                        editButton={
+                            <Button
+                                onClick={() => setEditingTodo(todo)}
+                                colour="secondary"
+                            >
+                                <EditIcon />
                             </Button>
                         }
                         toggleButton={
                             <Button
                                 onClick={() => handleToggleTodoCompletion(todo)}
+                                colour="neutral"
                             >
                                 <ToggleIcon />
                             </Button>
@@ -101,7 +101,7 @@ export const Home = () => {
     }
 
     return (
-        <div className="w-4/5 bg-gradient-to-b from-neutral-200 to-neutral-400 mx-auto h-screen p-10 flex space-x-10">
+        <div className="w-full xl:w-8/12 bg-gradient-to-b from-neutral-200 to-neutral-400 mx-auto h-screen p-10 flex space-x-10">
             {renderTodoList(pendingItems, true)}
             {renderTodoList(completedItems, false)}
         </div>

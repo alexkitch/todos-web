@@ -17,4 +17,15 @@ describe('TodoList component', () => {
             expect(spinner).toBeFalsy()
         }
     })
+
+    test('renders the children', () => {
+        // Act
+        render(
+            <TodoList>
+                <div data-testid="child" />
+            </TodoList>
+        )
+        // Assert
+        expect(screen.getByTestId('child')).toBeTruthy()
+    })
 })

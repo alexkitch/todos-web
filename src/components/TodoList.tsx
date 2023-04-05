@@ -9,8 +9,11 @@ export interface TodoListProps {
 export const TodoList = (props: TodoListProps) => {
     return (
         <section className="h-full flex-1 relative flex flex-col">
-            <ul className="flex-1 space-y-2">{props.children}</ul>
-            {props.addButton}
+            <ul className="flex-1 space-y-2 overflow-y-auto">
+                {props.children}
+            </ul>
+            <div className="pt-10">{props.addButton}</div>
+
             {props.suspense && (
                 <div
                     role="progressbar"

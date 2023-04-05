@@ -11,4 +11,11 @@ describe('TodoItem component', () => {
             'Test description'
         )
     })
+
+    test('shows the editor when edit mode is enabled', () => {
+        // Act
+        render(<TodoItem description="Test description" isEditing={true} />)
+        // Assert
+        expect(screen.getByRole('textbox')).toBeTruthy()
+    })
 })

@@ -1,3 +1,3 @@
 export const EditIcon = () => {
-    return <img src="./edit.svg" alt="Edit" className="w-6 h-6" />
+    return <img src="./edit.svg" alt="Edit" className="w-full h-full" />
 }

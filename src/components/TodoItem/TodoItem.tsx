@@ -1,6 +1,5 @@
-import { Button } from '@components/Button'
-import { DeleteIcon } from '@components/icons/DeleteIcon'
-import { TodoEditor } from './TodoEditor'
+import { TodoEditor } from '@components/TodoItem/TodoEditor'
+import './TodoItem.css'
 
 export interface TodoItemProps {
     deleteButton?: React.ReactNode
@@ -8,15 +7,15 @@ export interface TodoItemProps {
     toggleButton?: React.ReactNode
     description?: string
     isEditing?: boolean
+    isComplete?: boolean
     onChange?: (newValue: string) => void
 }
 
 export const TodoItem = (props: TodoItemProps) => {
-    const colour = props.isEditing ? 'bg-purple-500' : 'bg-purple-800'
-
+    const backgroundClass = `todo-item${props.isComplete ? '-complete' : ''}`
     return (
         <li
-            className={`w-full text-white p-5 rounded-xl cursor-pointer flex space-x-4 ${colour}`}
+            className={`w-full text-white p-5 rounded-xl flex space-x-4 ${backgroundClass}`}
         >
             {props.isEditing && (
                 <TodoEditor
@@ -26,10 +25,7 @@ export const TodoItem = (props: TodoItemProps) => {
             )}
             {!props.isEditing && (
                 <>
-                    <p
-                        className="flex-1 text-lg select-none"
-                        role="contentinfo"
-                    >
+                    <p className="flex-1 text-lg" role="contentinfo">
                         {props.description}
                     </p>
                     <div className="flex flex-col space-y-2">

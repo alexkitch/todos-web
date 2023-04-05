@@ -1,4 +1,4 @@
-import { Button } from '@components/Button'
+import { Button } from '@components/Button/Button'
 import { TickIcon } from '@components/icons/TickIcon'
 import { useRef } from 'react'
 
@@ -18,12 +18,13 @@ export const TodoEditor = (props: TodoEditorProps) => {
     return (
         <form className="w-full flex space-x-4" onSubmit={handleSubmit}>
             <textarea
+                role="textbox"
                 ref={inputRef}
                 defaultValue={props.initialValue}
                 rows={8}
                 className="flex-1 text-black"
             />
-            <Button type="submit">
+            <Button colour="success">
                 <TickIcon />
             </Button>
         </form>

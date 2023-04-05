@@ -1,0 +1,7 @@
+.todo-item {
+    @apply bg-purple-500;
+}
+
+.todo-item-complete {
+    @apply bg-purple-400 opacity-80;
+}
