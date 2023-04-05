@@ -2,22 +2,14 @@ import { useQuery } from 'react-query'
 import axios from 'axios'
 import { Todo } from '@api/Todo'
 import { useGetTodos } from '@hooks/useGetTodos'
+import { TodoList } from './TodoList'
 
 export const Home = () => {
     const { todos, isLoading } = useGetTodos()
-
-    if (isLoading) {
-        return <div>Loading...</div>
-    }
-
     return (
-        <div>
-            <h1>Todos</h1>
-            <ul>
-                {todos?.map((todo) => (
-                    <li key={todo.id}>{todo.description}</li>
-                ))}
-            </ul>
+        <div className="w-4/5 bg-neutral-300 mx-auto min-h-screen p-10">
+            <TodoList />
+            <TodoList />
         </div>
     )
 }
