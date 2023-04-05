@@ -1,14 +1,16 @@
 import { LoadingSpinner } from './LoadingSpinner'
 
 export interface TodoListProps {
+    addButton?: React.ReactNode
     children?: React.ReactNode
     suspense?: boolean
 }
 
 export const TodoList = (props: TodoListProps) => {
     return (
-        <section className="h-full flex-1 relative">
-            {props.children}
+        <section className="h-full flex-1 relative flex flex-col">
+            <ul className="flex-1 space-y-2">{props.children}</ul>
+            {props.addButton}
             {props.suspense && (
                 <div
                     role="progressbar"
