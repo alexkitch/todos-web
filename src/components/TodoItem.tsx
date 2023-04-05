@@ -4,7 +4,7 @@ export interface TodoItemProps {
 
 export const TodoItem = (props: TodoItemProps) => {
     return (
-        <div className="w-full h-12 bg-neutral-400 rounded-lg mb-2">
+        <div className="w-full bg-purple-800 text-white p-5 rounded-xl">
             {props.description}
         </div>
     )
