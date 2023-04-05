@@ -15,6 +15,7 @@ The application is built using React and is written in TypeScript. It uses React
 
 Assuming no login required
 Assuming that the backend API can be hard-coded
+Assuming responsiveness isn't crutial
 Seems logical to split left and right to Pending and Completed - bit like Upwave
 The home component should probably be a higher order component responsible for the data operations
 The other components should be largely presentational
