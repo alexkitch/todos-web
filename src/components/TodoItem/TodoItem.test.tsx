@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, test } from 'vitest'
-import { TodoItem } from '@components/TodoItem'
+import { TodoItem } from './TodoItem'
 
 describe('TodoItem component', () => {
     test('renders the description', () => {

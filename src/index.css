@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-    @apply text-3xl font-bold;
+#root {
+    @apply bg-neutral-900;
+    font-family: 'Anuphan', sans-serif;
 }
