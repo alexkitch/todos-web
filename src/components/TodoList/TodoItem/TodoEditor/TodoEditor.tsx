@@ -1,5 +1,5 @@
 import { Button } from '@components/Button/Button'
-import { TickIcon } from '@components/icons/TickIcon'
+import { TickIcon } from '@components/Icons/TickIcon'
 import { useRef } from 'react'
 
 export interface TodoEditorProps {

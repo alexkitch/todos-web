@@ -1,4 +1,4 @@
-import { TodoEditor } from '@components/TodoItem/TodoEditor'
+import { TodoEditor } from '@components/TodoList/TodoItem/TodoEditor/TodoEditor'
 import './TodoItem.css'
 
 export interface TodoItemProps {

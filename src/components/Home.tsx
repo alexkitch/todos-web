@@ -1,17 +1,16 @@
 import { useMemo, useState } from 'react'
 import { Todo } from '@api/Todo'
 import { useGetTodos } from '@hooks/useGetTodos'
-import { TodoList } from '@components/TodoList'
-import { TodoItem } from '@components/TodoItem/TodoItem'
+import { TodoList } from '@components/TodoList/TodoList'
+import { TodoItem } from '@components/TodoList/TodoItem/TodoItem'
 import { Button } from '@components/Button/Button'
-import { PlusIcon } from '@components/icons/PlusIcon'
+import { PlusIcon } from '@components/Icons/PlusIcon'
 import { useCreateTodo } from '@hooks/useCreateTodo'
 import { useDeleteTodo } from '@hooks/useDeleteTodo'
-import { DeleteIcon } from '@components/icons/DeleteIcon'
-import { EditIcon } from '@components/icons/EditIcon'
+import { DeleteIcon } from '@components/Icons/DeleteIcon'
+import { EditIcon } from '@components/Icons/EditIcon'
 import { useEditTodo } from '@hooks/useEditTodo'
-import { TickIcon } from '@components/icons/TickIcon'
-import { ToggleIcon } from '@components/icons/ToggleIcon'
+import { ToggleIcon } from '@components/Icons/ToggleIcon'
 
 export const Home = () => {
     const { todos, isFetchingTodos } = useGetTodos()

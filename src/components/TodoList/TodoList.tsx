@@ -1,4 +1,4 @@
-import { LoadingSpinner } from './LoadingSpinner'
+import { LoadingSpinner } from '@components/Shared/LoadingSpinner'
 
 export interface TodoListProps {
     addButton?: React.ReactNode
